@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENG.IA - Asistente Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Fondo animado de ondas -->
+    <div class="waves-container">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(173, 155, 255, 0.7)" /> 
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(89, 51, 255, 0.5)" /> 
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(1, 0, 0, 0.3)" />     
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#5933FF" />
+            </g>
+        </svg>
+    </div>
+
+    <section id="hero">
+        <header>
+            <img src="Logo dengia.png" alt="DENG.IA Logo" id="logo">
+            <div id="chat-controls-left">
+                <button id="btn-cerrar-chat">← Cerrar chat</button>
+                <button id="btn-volver-atras" class="hidden">← Volver atrás</button>
+            </div>
+        </header>
+
+        <div id="center-orb">
+            <img src="IMAGEN MOSQUITO INICIAL.png" alt="Mosquito IA" id="mosquito-img">
+        </div>
+
+        <!-- Botón flotante inicial -->
+        <button id="btn-iniciar-chat-flotante">💬 Iniciar chat</button>
+
+        <!-- Ventana de Chat al estilo Mensajería -->
+        <div id="chat-window" class="hidden">
+            <div id="chat-history"></div>
+            <div id="chat-options-container"></div>
+        </div>
+
+        <nav id="bottom-nav">
+            <button id="btn-mapa">Mapa colaborativo</button>
+            <button id="btn-ver-mas">Ver más <br><span>∨</span></button>
+            <button id="btn-info">Información básica</button>
+        </nav>
+    </section>
+
+    <section id="content-section">
+        <div class="col-mapa">
+            <h2>Mapa colaborativo (Lomas de Zamora)</h2>
+            <div id="map"></div>
+            <div id="report-form-container">
+                <h3>Reportar posible criadero</h3>
+                <form id="form-reporte">
+                    <button type="button" id="btn-gps">Usar mi ubicación actual</button>
+                    <p id="ubicacion-status">O seleccioná un punto en el mapa.</p>
+                    <input type="hidden" id="lat" required>
+                    <input type="hidden" id="lng" required>
+                    <textarea id="descripcion" placeholder="Descripción del criadero (ej. Recipiente con agua)"></textarea>
+                    <button type="submit">Enviar reporte</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-info">
+            <h2>Información básica</h2>
+            <div class="info-card">
+                <h3>¿Cuándo estar más atentos?</h3>
+                <p>En los meses de calor y lluvias, aumenta la presencia de mosquitos. Es el momento del año donde más tenemos que cuidarnos.</p>
+                <h3>Síntomas a los que prestar atención</h3>
+                <p>Fiebre alta repentina, dolor fuerte detrás de los ojos y dolores musculares o articulares. También pueden aparecer náuseas, cansancio extremo o manchas rojas en la piel.</p>
+                <h3>¿Por qué es peligroso?</h3>
+                <p>Si no se trata a tiempo, el dengue puede complicarse y causar sangrados internos o bajones graves de presión. En sus formas más severas, puede poner en riesgo la vida.</p>
+                <h3>Cómo prevenirlo y evitar que se multiplique</h3>
+                <p>La clave principal es vaciar, dar vuelta o tirar cualquier recipiente que junte agua. Además, usá repelente todos los días y se recomienda tener mosquiteros.</p>
+                <p><small>Fuente: Ministerio de Salud. La plataforma es informativa y no reemplaza la consulta médica.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="mapa.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
